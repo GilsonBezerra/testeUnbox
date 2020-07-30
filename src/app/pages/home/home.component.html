@@ -1,0 +1,30 @@
+<app-nav></app-nav>
+<div class="container">
+    <h3 class="card-title">Lista de Usuários</h3>
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-striped table-sm" style="width:100%">
+                <thead>
+                    <th (click)="sort('nome')">Nome</th>
+                    <th (click)="sort('endereco')">Email</th>
+                    <th>Detalhe</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users.results">
+                        <td>{{user.name.first}} {{ user.name.last }}</td>
+                        <td>{{user.email}}</td>
+                        <td class="align-middle">
+                            <div class="btn-group-toggle" data-toggle="buttons" (click)="onSelect(user)">
+                                <label class="btn btn-secondary active">
+                                 <input type="checkbox" checked autocomplete="off"> Ver
+                                 </label>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
