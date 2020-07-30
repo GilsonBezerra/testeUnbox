@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit {
   public user = {} as User;
   public users: User[];
 
+  public dataStorage: User;
+
 
   constructor(
     private userService: UserService,
@@ -35,7 +37,7 @@ export class HomeComponent implements OnInit {
     return this.userService.getAllUser()
       .subscribe((users: User[]) => {
         this.users = users
-        console.log('Dados retornados', this.users);
+        window.localStorage.setItem('user_data', JSON.stringify(this.users));
       });
   }
 
